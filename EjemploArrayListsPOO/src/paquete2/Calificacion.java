@@ -51,4 +51,11 @@ public class Calificacion {
         return profesor;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s - %s - %.2f",obtenerProfesor().obtenerNombre()
+                ,obtenerNombreMateria(),obtenerNota());
+    }
+    
+
 }
