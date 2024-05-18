@@ -4,6 +4,7 @@
  */
 package paquete3;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,30 +15,52 @@ public class Ejecutor1 {
 
     public static void main(String[] args) {
 
-        double valorM ;
-        String marcaM;
-        
-        double valorPr ;
-        String marcaPr;
-        
         Scanner entrada = new Scanner(System.in);
-        Computador c1 = new Computador();
-       
 
+        double valorM;
+        double valorPr;
 
-        System.out.println("Ingrese la marca de la memoria ");
-        marcaM = entrada.nextLine();
-        System.out.println("Valor de la memoria");
-        valorM = entrada.nextDouble();
-         Memoria m1 = new Memoria (marcaM , valorM );
-         
-         
-         System.out.println("Ingrese la marca del procesador ");
-        marcaPr = entrada.nextLine();
-        System.out.println("Valor del procesador");
-        valorPr = entrada.nextDouble();
-        Procesador p1 = new Procesador(marcaPr , valorPr); 
-        
-        
+        String marcaM;
+        String marcaPr;
+
+        int numComputadoras;
+        Procesador procesador;
+        Memoria memoria;
+        ArrayList<Computador> computadores = new ArrayList<>();
+
+        System.out.println("Ingrese el numero de computadoras a ingresar: ");
+        numComputadoras = entrada.nextInt();
+        entrada.nextLine();
+
+        for (int c = 0; c < numComputadoras; c++) {
+            System.out.println("Ingrese la marca del procesador: ");
+            marcaPr = entrada.nextLine();
+
+            System.out.println("Ingrese el costo del procesador: ");
+            valorPr = entrada.nextDouble();
+            entrada.nextLine();
+            procesador = new Procesador(marcaPr, valorPr);
+
+            System.out.println("Ingrese la marca de la memoria");
+            marcaM = entrada.nextLine();
+            System.out.println("Ingrese el costo de la memoria: ");
+            valorM = entrada.nextDouble();
+            entrada.nextLine();
+
+            memoria = new Memoria(marcaM, valorM);
+
+            Computador computador = new Computador(marcaPr,
+                    procesador, memoria);
+            // Llamamos metodos para calcular el costo 
+            computador.establecerCostoComputador();
+            computadores.add(computador);
+
+        }
+        Venta v = new Venta(computadores);
+        v.establecerValorVenta();
+
+        System.out.printf("%s\n", v);
+
     }
+
 }

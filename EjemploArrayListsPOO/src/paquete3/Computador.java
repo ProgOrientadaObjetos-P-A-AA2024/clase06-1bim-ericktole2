@@ -15,13 +15,11 @@ public class Computador {
    private double costoComputador;
 
    
-    public Computador(String marca, Procesador procesador, Memoria memoria, double costoComputador) {
+    public Computador(String marca, Procesador procesador, Memoria memoria) {
         this.marca = marca;
         this.procesador = procesador;
         this.memoria = memoria;
-        this.costoComputador = costoComputador;
     }
-
    
    
     public String obtenerMarca() {
@@ -52,7 +50,8 @@ public class Computador {
         return costoComputador;
     }
 
-    public void establecerCostoComputador(double costoComputador) {
-        this.costoComputador = costoComputador;
+    public void establecerCostoComputador() {
+  costoComputador = obtenerProcesador().obtenerCosto()
+                + obtenerMemoria().obtenerCosto();
     }
 }
