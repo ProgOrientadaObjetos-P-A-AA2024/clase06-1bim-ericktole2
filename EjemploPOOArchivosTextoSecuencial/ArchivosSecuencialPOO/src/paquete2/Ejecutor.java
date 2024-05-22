@@ -18,7 +18,9 @@ public class Ejecutor {
         Profesor profesor2 = new Profesor("Gregory Walsh", "nombramiento");
         Profesor profesor3 = new Profesor("Kevin Page", "nombramiento");
         
-        
+        // utilizamos varios metodos tanto para escribir como para leer el 
+        // archivo, reescrivir , enviar datos, crear un to String , facilitar,
+        // hacer mas legible un codigo 
         ArchivoEscritura archivo = new ArchivoEscritura(nombreArchivo);
         
         // establecer el valor del atributo registro
